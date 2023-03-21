@@ -63,6 +63,7 @@ function setupPixel(row, column, pixelAmount) {
   pixel.setAttribute("index", `${row},${column}`);
 
   pixel.addEventListener("mousedown", (e) => changeColor(e));
+  pixel.addEventListener("mousemove", (e) => changeColor(e));
 
   return pixel;
 }
