@@ -43,7 +43,7 @@ function setupPixel(row, column, pixelAmount) {
   return pixel;
 }
 
-function clearGrid() {
+function clearCanvas() {
   while (canvas.firstChild) {
     canvas.removeChild(canvas.lastChild);
   }
