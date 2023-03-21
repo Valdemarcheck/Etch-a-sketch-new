@@ -56,8 +56,8 @@ function regenerateGrid() {
 
 function setGridToOneColor() {
   let gridWidth = +slider.value;
-  for (let row = 0; row < gridWidth - 1; row++) {
-    for (let column = 0; column < gridWidth - 1; column++) {
+  for (let row = 0; row < gridWidth; row++) {
+    for (let column = 0; column < gridWidth; column++) {
       pixels[row][column].style.backgroundColor = WHITE_COLOR;
     }
   }
