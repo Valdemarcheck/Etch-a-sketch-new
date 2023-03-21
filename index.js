@@ -21,13 +21,17 @@ maxSizeSpan.textContent = slider.max;
 
 const LEFT_CLICK = 1;
 const RIGHT_CLICK = 3;
-const WHITE_COLOR = '#ffffff';
+const WHITE_COLOR = "#ffffff";
+
+const PEN = "pen";
+const RANDOM_COLOR_TOOL = "random_color";
 
 // Setup global variables
 
 let pixels = [];
 let brushSize = 1;
 let currentColor = "#000000";
+let currentTool = "pen";
 
 // Add eventListener's
 
@@ -49,7 +53,7 @@ function setupPixel(row, column, pixelAmount) {
   pixel.style.minWidth = pixelSize + "px";
   pixel.setAttribute("index", `${row},${column}`);
 
-  pixel.addEventListener('mousedown', e => changeColor(e));
+  pixel.addEventListener("mousedown", (e) => changeColor(e));
 
   return pixel;
 }
@@ -76,13 +80,17 @@ function clearGrid() {
 }
 
 function changeColor(e) {
+  if (currentTool === PEN) {
     e.preventDefault();
     console.log(e);
     if (e.which === LEFT_CLICK) {
-        e.target.style.backgroundColor = currentColor;
+      e.target.style.backgroundColor = currentColor;
     } else if (e.which === RIGHT_CLICK) {
-        e.target.style.backgroundColor = WHITE_COLOR;
+      e.target.style.backgroundColor = WHITE_COLOR;
     }
+  } else if (currentTool === RANDOM_COLOR_TOOL) {
+
+  }
 }
 
-fillGrid(16);
+fillGrid(8);
