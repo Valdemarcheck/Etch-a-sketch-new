@@ -74,6 +74,39 @@ main > * {
 .canvas-and-slider {
   background-color: aquamarine;
   min-width: 14rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 4rem;
+}
+
+h2 {
+  font-size: 3rem;
+  color: #252b35;
+}
+
+.canvas {
+  width: 80%;
+  aspect-ratio: 1/1;
+  background-color: #ddd;
+  box-shadow: 0 0.5rem #252b35;
+  border-radius: 1rem;
+}
+
+.slider {
+  width: 80%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.slider-value {
+  color: #252b35;
+  font-size: 1.3rem;
 }
 
 .lines {
