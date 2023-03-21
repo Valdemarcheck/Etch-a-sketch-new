@@ -30,7 +30,7 @@ const RANDOM_COLOR_TOOL = "random_color";
 
 let pixels = [];
 let brushSize = 1;
-let currentColor = "#000000";
+let currentColor = colorPicker.value;
 let currentTool = PEN;
 
 // Add eventListeners
@@ -40,6 +40,10 @@ penTool.addEventListener("click", () => (currentTool = PEN));
 randomColorTool.addEventListener(
   "click",
   () => (currentTool = RANDOM_COLOR_TOOL)
+);
+colorPicker.addEventListener(
+  "change",
+  () => (currentColor = colorPicker.value)
 );
 
 // initialize required functions
@@ -87,7 +91,6 @@ function clearGrid() {
 function changeColor(e) {
   e.preventDefault();
   if (e.which === LEFT_CLICK) {
-    console.log(e);
     if (currentTool === PEN) {
       e.target.style.backgroundColor = currentColor;
     } else if (currentTool === RANDOM_COLOR_TOOL) {
@@ -105,4 +108,5 @@ function getRandomColor() {
 function getColorPart() {
   return Math.floor(Math.random() * 255);
 }
+
 fillGrid(8);
