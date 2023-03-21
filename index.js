@@ -36,6 +36,7 @@ let currentTool = PEN;
 // Add eventListeners
 
 slider.addEventListener("change", regenerateGrid);
+clearTool.addEventListener("click", setGridToOneColor);
 penTool.addEventListener("click", () => (currentTool = PEN));
 randomColorTool.addEventListener(
   "click",
@@ -51,6 +52,15 @@ colorPicker.addEventListener(
 function regenerateGrid() {
   clearCanvas();
   fillGrid(+slider.value);
+}
+
+function setGridToOneColor() {
+  let gridWidth = +slider.value;
+  for (let row = 0; row < gridWidth - 1; row++) {
+    for (let column = 0; column < gridWidth - 1; column++) {
+      pixels[row][column].style.backgroundColor = WHITE_COLOR;
+    }
+  }
 }
 
 function setupPixel(row, column, pixelAmount) {
@@ -110,4 +120,4 @@ function getColorPart() {
   return Math.floor(Math.random() * 255);
 }
 
-fillGrid(8);
+fillGrid(+slider.value);
