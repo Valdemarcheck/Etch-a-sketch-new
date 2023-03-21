@@ -58,19 +58,6 @@ main > * {
   gap: 1rem;
 }
 
-.button {
-  width: 70%;
-  aspect-ratio: 1/1;
-
-  background-color: #ddd;
-  box-shadow: 0 0.5rem #252b35;
-  border-radius: 10px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .button img {
   width: 80%;
 }
@@ -236,13 +223,28 @@ h2 {
   background-size: 60% 60%;
 }
 
-@media (max-width: 800px) {
+.button {
+  width: 70%;
+  aspect-ratio: 1/1;
 
+  background-color: #ddd;
+  box-shadow: 0 0.5rem #252b35;
+  border-radius: 10px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  transition: all ease-out 0.1s;
+}
+
+@media (max-width: 800px) {
   body {
     padding-top: 3rem;
   }
 
-  h1, h2 {
+  h1,
+  h2 {
     font-size: 2.5rem;
   }
 
@@ -282,5 +284,16 @@ h2 {
   .github-link {
     height: 60%;
   }
+}
 
+/* Interactivity and animations */
+
+.button:hover,
+.github-link:hover {
+  scale: 1.1;
+}
+
+.button:active {
+  transform: translateY(0.5rem);
+  box-shadow: none;
 }
