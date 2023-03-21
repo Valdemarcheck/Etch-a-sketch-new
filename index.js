@@ -26,11 +26,11 @@ let currentColor = "#000000";
 
 // Add eventListener's
 
-slider.addEventListener("change", regenerateCanvas);
+slider.addEventListener("change", regenerateGrid);
 
 // initialize required functions
 
-function regenerateCanvas() {
+function regenerateGrid() {
   clearCanvas();
   fillGrid(+slider.value);
 }
@@ -59,7 +59,7 @@ function fillGrid(width) {
   }
 }
 
-function clearCanvas() {
+function clearGrid() {
   while (canvas.firstChild) {
     canvas.removeChild(canvas.lastChild);
   }
