@@ -131,6 +131,23 @@ h2 {
 .lines {
   background-color: aqua;
   min-width: 16rem;
+  padding: 1rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  gap: 1rem;
+}
+
+.line-container {
+  flex: 1;
+  max-height: 6rem;
+  width: 12rem;
+  background-color: #252b35;
+}
+
+.line-container:nth-child(2) {
+  align-self: flex-end;
 }
 
 .empty {
