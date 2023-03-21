@@ -90,6 +90,7 @@ h2 {
 
 .canvas {
   width: 80%;
+  max-width: 400px;
   aspect-ratio: 1/1;
   background-color: #ddd;
   box-shadow: 0 0.5rem #252b35;
@@ -98,6 +99,7 @@ h2 {
 
 .slider {
   width: 80%;
+  max-width: 350px;
 
   display: flex;
   align-items: center;
