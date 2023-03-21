@@ -136,13 +136,12 @@ h2 {
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  gap: 1rem;
 }
 
 .line-container {
   flex: 1;
-  max-height: 6rem;
-  width: 12rem;
+  max-height: 12rem;
+  width: 18rem;
   background-color: #252b35;
 }
 
