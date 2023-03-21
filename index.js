@@ -31,7 +31,7 @@ const RANDOM_COLOR_TOOL = "random_color";
 let pixels = [];
 let brushSize = 1;
 let currentColor = "#000000";
-let currentTool = "pen";
+let currentTool = PEN;
 
 // Add eventListener's
 
@@ -89,8 +89,15 @@ function changeColor(e) {
       e.target.style.backgroundColor = WHITE_COLOR;
     }
   } else if (currentTool === RANDOM_COLOR_TOOL) {
-
+    e.target.style.backgroundColor = getRandomColor();
   }
 }
 
+function getRandomColor() {
+    return `rgb(${getColorPart()}, ${getColorPart()}, ${getColorPart()})`
+}
+
+function getColorPart() {
+    return Math.floor(Math.random()*255);
+}
 fillGrid(8);
