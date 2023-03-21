@@ -50,7 +50,7 @@ colorPicker.addEventListener(
 // initialize required functions
 
 function regenerateGrid() {
-  clearCanvas();
+  clearGrid();
   fillGrid(+slider.value);
 }
 
