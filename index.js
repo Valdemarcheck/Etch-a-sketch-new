@@ -17,6 +17,12 @@ const maxSizeSpan = document.querySelector(".slider-value.max");
 minSizeSpan.textContent = slider.min;
 maxSizeSpan.textContent = slider.max;
 
+// Setup aliases
+
+const LEFT_CLICK = 1;
+const RIGHT_CLICK = 3;
+const WHITE_COLOR = '#ffffff';
+
 // Setup global variables
 
 let pixels = [];
@@ -43,7 +49,7 @@ function setupPixel(row, column, pixelAmount) {
   pixel.style.minWidth = pixelSize + "px";
   pixel.setAttribute("index", `${row},${column}`);
 
-  pixel.addEventListener('click', e => changeColor(e));
+  pixel.addEventListener('mousedown', e => changeColor(e));
 
   return pixel;
 }
@@ -70,8 +76,13 @@ function clearGrid() {
 }
 
 function changeColor(e) {
+    e.preventDefault();
     console.log(e);
-    e.target.style.backgroundColor = currentColor;
+    if (e.which === LEFT_CLICK) {
+        e.target.style.backgroundColor = currentColor;
+    } else if (e.which === RIGHT_CLICK) {
+        e.target.style.backgroundColor = WHITE_COLOR;
+    }
 }
 
 fillGrid(16);

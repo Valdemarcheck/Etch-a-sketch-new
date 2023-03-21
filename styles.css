@@ -97,7 +97,7 @@ h2 {
   max-width: 300px;
   height: 300px;
   aspect-ratio: 1/1;
-  background-color: #ddd;
+  background-color: #fff;
   box-shadow: 0 0.5rem #252b35;
   border-radius: 1rem;
 
@@ -323,7 +323,7 @@ h2 {
   25% {
     transform: translateY(2rem);
   }
-  
+
   75% {
     transform: translateY(-4rem);
   }
