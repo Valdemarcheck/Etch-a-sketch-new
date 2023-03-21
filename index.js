@@ -17,19 +17,22 @@ function fillGrid(width) {
   for (let row = 0; row < width; row++) {
     pixels.push([]);
     for (let column = 0; column < width; column++) {
-      let pixel = setupPixel(row, column);
+      let pixel = setupPixel(row, column, width);
       pixels[row].push(pixel);
       canvas.appendChild(pixel);
     }
   }
 }
 
-function setupPixel(row, column) {
+function setupPixel(row, column, pixelAmount) {
   let pixel = document.createElement("div");
+  let pixelSize = canvas.clientWidth/pixelAmount;
+
   pixel.style.border = "1px solid black";
-  pixel.style.minHeight = "30px";
-  pixel.style.minWidth = "30px";
+  pixel.style.minHeight = pixelSize + 'px';
+  pixel.style.minWidth = pixelSize + 'px';
   pixel.setAttribute("index", `${row},${column}`);
+
   return pixel;
 }
 
