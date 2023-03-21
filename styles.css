@@ -10,6 +10,7 @@ body {
   height: 100vh;
   background-color: #e1b887;
   padding-top: 1rem;
+  overflow: hidden;
 
   display: flex;
   flex-direction: column;
@@ -143,14 +144,45 @@ h2 {
 }
 
 .circles {
-  width: 12rem;
+  width: 14rem;
   aspect-ratio: 1/1;
-  background-color: #252b35;
 
   position: absolute;
   left: 0;
   bottom: 0;
   z-index: -1;
+}
+
+.circles > * {
+  position: relative;
+  border-radius: 50%;
+}
+
+.circle1 {
+  width: 16rem;
+  height: 16rem;
+  background-color: #d96b52;
+  position: relative;
+  top: 14rem;
+  right: 6rem;
+}
+
+.circle2 {
+  width: 5rem;
+  height: 5rem;
+  background-color: #d94436;
+  position: relative;
+  left: 12rem;
+  top: 3rem;
+}
+
+.circle3 {
+  width: 4rem;
+  height: 4rem;
+  background-color: #d9a577;
+  position: relative;
+  left: 5rem;
+  bottom: 7rem;
 }
 
 .github-link {
