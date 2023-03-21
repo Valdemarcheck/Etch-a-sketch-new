@@ -18,31 +18,46 @@
     <header><h1>Etch-a-sketch</h1></header>
     <main>
       <div class="buttons">
-        <div class="button"></div>
-        <div class="button"></div>
-        <div class="button"></div>
-        <div class="button"></div>
-        <div class="button"></div>
-        <div class="button"></div>
+        <div class="button">
+          <input type="color" value="#000000" class="color-btn" />
+        </div>
+        <div class="button pen-btn">
+          <img src="./images/tool-icons/pen.png" alt="pen tool" />
+        </div>
+        <div class="button eraser-btn">
+          <img src="./images/tool-icons/eraser.png" alt="eraser tool" />
+        </div>
+        <div class="button">
+          <img src="./images/tool-icons/rainbow.png" alt="random color tool" />
+        </div>
+        <div class="button">
+          <img src="./images/tool-icons/ruler.png" alt="pen size tool" />
+        </div>
+        <div class="button clear-btn">
+          <img
+            src="./images/tool-icons/clean-canvas.png"
+            alt="clear canvas tool"
+          />
+        </div>
       </div>
       <div class="canvas-and-slider">
         <h2>Your canvas</h2>
         <div class="canvas"></div>
         <div class="slider">
           <span class="slider-value">2</span>
-          <input type="range" min="2" max="64" value="16" id="canvas-size" />
+          <input type="range" min="2" max="64" value="16" class="canvas-size" />
           <span class="slider-value">64</span>
         </div>
       </div>
       <div class="lines">
         <div class="line-container">
-          <img src="./images/line1.png" alt="decorative line">
+          <img src="./images/line1.png" alt="decorative line" />
         </div>
         <div class="line-container">
-          <img src="./images/line2.png" alt="decorative line">
+          <img src="./images/line2.png" alt="decorative line" />
         </div>
         <div class="line-container">
-          <img src="./images/line3.png" alt="decorative line">
+          <img src="./images/line3.png" alt="decorative line" />
         </div>
       </div>
     </main>
