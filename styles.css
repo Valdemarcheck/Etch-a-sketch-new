@@ -74,6 +74,21 @@ main > * {
   width: 80%;
 }
 
+.color-btn {
+  border: none;
+  width: 70%;
+  height: 70%;
+}
+
+.color-btn::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+.color-btn::-webkit-color-swatch {
+  border: 0;
+  border-radius: 4px;
+}
+
 .canvas-and-slider {
   max-width: 50rem;
 
