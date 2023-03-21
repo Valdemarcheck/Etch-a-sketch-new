@@ -40,6 +40,10 @@ h1 {
 
 main {
   flex: 1;
+  width: 80%;
+  background-color: #252b35;
+
+  display: flex;
 }
 
 .empty {
