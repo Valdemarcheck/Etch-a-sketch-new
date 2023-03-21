@@ -9,9 +9,9 @@ const randomColorTool = document.querySelector(".random-color-btn");
 
 const canvas = document.querySelector(".canvas");
 
-const minSizeSpan = document.querySelector(".slider-value.min")
-const slider = document.querySelector(".canvas-size")
-const maxSizeSpan = document.querySelector(".slider-value.max")
+const minSizeSpan = document.querySelector(".slider-value.min");
+const slider = document.querySelector(".canvas-size");
+const maxSizeSpan = document.querySelector(".slider-value.max");
 
 minSizeSpan.textContent = slider.min;
 maxSizeSpan.textContent = slider.max;
@@ -33,14 +33,23 @@ function fillGrid(width) {
 
 function setupPixel(row, column, pixelAmount) {
   let pixel = document.createElement("div");
-  let pixelSize = canvas.clientWidth/pixelAmount;
+  let pixelSize = canvas.clientWidth / pixelAmount;
 
   pixel.style.border = "1px solid black";
-  pixel.style.minHeight = pixelSize + 'px';
-  pixel.style.minWidth = pixelSize + 'px';
+  pixel.style.minHeight = pixelSize + "px";
+  pixel.style.minWidth = pixelSize + "px";
   pixel.setAttribute("index", `${row},${column}`);
 
   return pixel;
+}
+
+function clearGrid() {
+  while (canvas.firstChild) {
+    canvas.removeChild(canvas.lastChild);
+  }
+  while (pixels.length > 0) {
+    pixels.pop();
+  }
 }
 
 fillGrid(16);
