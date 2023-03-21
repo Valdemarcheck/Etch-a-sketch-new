@@ -31,7 +31,7 @@ header {
 
 h1 {
   font-size: 3.5rem;
-  color: #ddd;
+  color: #fff;
 }
 
 main {
@@ -232,7 +232,7 @@ h2 {
   width: 70%;
   aspect-ratio: 1/1;
 
-  background-color: #ddd;
+  background-color: #fff;
   box-shadow: 0 0.5rem #252b35;
   border-radius: 10px;
 
@@ -323,7 +323,7 @@ h2 {
   25% {
     transform: translateY(2rem);
   }
-
+  
   75% {
     transform: translateY(-4rem);
   }
