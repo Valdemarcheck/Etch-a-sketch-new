@@ -29,8 +29,8 @@ header {
   padding: 0.5rem 0;
   text-align: center;
   background-color: #df6e63;
-  border-radius: 4rem;
   box-shadow: 0 0.5rem #252b35;
+  border-radius: 4rem;
 }
 
 h1 {
@@ -60,6 +60,15 @@ main > * {
   flex-direction: column;
   align-items: center;
   gap: 1rem;
+}
+
+.button {
+  width: 90%;
+  aspect-ratio: 1/1;
+
+  background-color: #ddd;
+  box-shadow: 0 0.5rem #252b35;
+  border-radius: 10px;
 }
 
 .empty {
