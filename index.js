@@ -33,9 +33,14 @@ let brushSize = 1;
 let currentColor = "#000000";
 let currentTool = PEN;
 
-// Add eventListener's
+// Add eventListeners
 
 slider.addEventListener("change", regenerateGrid);
+penTool.addEventListener("click", () => (currentTool = PEN));
+randomColorTool.addEventListener(
+  "click",
+  () => (currentTool = RANDOM_COLOR_TOOL)
+);
 
 // initialize required functions
 
@@ -94,10 +99,10 @@ function changeColor(e) {
 }
 
 function getRandomColor() {
-    return `rgb(${getColorPart()}, ${getColorPart()}, ${getColorPart()})`
+  return `rgb(${getColorPart()}, ${getColorPart()}, ${getColorPart()})`;
 }
 
 function getColorPart() {
-    return Math.floor(Math.random()*255);
+  return Math.floor(Math.random() * 255);
 }
 fillGrid(8);
