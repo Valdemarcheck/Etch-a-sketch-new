@@ -90,13 +90,13 @@ main > * {
 }
 
 .canvas-and-slider {
-  max-width: 50rem;
+  max-width: 60rem;
 
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 4rem;
+  gap: 3rem;
 }
 
 h2 {
@@ -106,7 +106,7 @@ h2 {
 
 .canvas {
   width: 80%;
-  max-width: 400px;
+  max-width: 500px;
   aspect-ratio: 1/1;
   background-color: #ddd;
   box-shadow: 0 0.5rem #252b35;
