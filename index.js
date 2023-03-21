@@ -65,7 +65,7 @@ function setGridToOneColor() {
 
 function setupPixel(row, column, pixelAmount) {
   let pixel = document.createElement("div");
-  let pixelSize = canvas.clientWidth / pixelAmount;
+  let pixelSize = canvas.clientHeight / pixelAmount;
 
   pixel.style.border = "1px solid black";
   pixel.style.minHeight = pixelSize + "px";
