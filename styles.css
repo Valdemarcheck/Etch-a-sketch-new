@@ -21,7 +21,6 @@ header,
 .empty {
   min-height: 4rem;
   height: 6rem;
-  background-color: red;
 }
 
 header {
@@ -141,5 +140,23 @@ h2 {
 
 .empty {
   width: 100%;
-  padding: 1rem 0;
+  padding: 1rem;
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.github-link {
+  display: inline-block;
+  height: 120%;
+  aspect-ratio: 1/1;
+  border-radius: 10px;
+  background-color: #df6e63;
+  box-shadow: 0 0.5rem #252b35;
+
+  background-image: url("./images/github-logo.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 80% 80%;
 }
