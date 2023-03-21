@@ -9,6 +9,7 @@
 body {
   height: 100vh;
   background-color: #e1b887;
+  padding-top: 1rem;
 
   display: flex;
   flex-direction: column;
@@ -21,6 +22,20 @@ header,
   min-height: 4rem;
   height: 6rem;
   background-color: red;
+}
+
+header {
+  width: 70%;
+  padding: 0.5rem 0;
+  text-align: center;
+  background-color: #df6e63;
+  border-radius: 4rem;
+  box-shadow: 0 0.5rem #252b35;
+}
+
+h1 {
+  font-size: 4rem;
+  color: #ddd;
 }
 
 main {
