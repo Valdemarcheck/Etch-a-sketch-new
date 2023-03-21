@@ -71,6 +71,16 @@ main > * {
   border-radius: 10px;
 }
 
+.canvas-and-slider {
+  background-color: aquamarine;
+  min-width: 14rem;
+}
+
+.lines {
+  background-color: aqua;
+  min-width: 16rem;
+}
+
 .empty {
   width: 100%;
   padding: 1rem 0;
