@@ -9,6 +9,13 @@ const randomColorTool = document.querySelector(".random-color-btn");
 
 const canvas = document.querySelector(".canvas");
 
+const minSizeSpan = document.querySelector(".slider-value.min")
+const slider = document.querySelector(".canvas-size")
+const maxSizeSpan = document.querySelector(".slider-value.max")
+
+minSizeSpan.textContent = slider.min;
+maxSizeSpan.textContent = slider.max;
+
 let pixels = [];
 let brushSize = 1;
 let currentColor = "#000000";
