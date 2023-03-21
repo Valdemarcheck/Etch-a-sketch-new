@@ -44,6 +44,8 @@ function setupPixel(row, column, pixelAmount) {
   pixel.style.minWidth = pixelSize + "px";
   pixel.setAttribute("index", `${row},${column}`);
 
+  pixel.addEventListener('click', e => changeColor(e));
+
   return pixel;
 }
 
@@ -66,6 +68,11 @@ function clearGrid() {
   while (pixels.length > 0) {
     pixels.pop();
   }
+}
+
+function changeColor(e) {
+    console.log(e);
+    e.target.style.backgroundColor = currentColor;
 }
 
 fillGrid(16);
