@@ -85,16 +85,16 @@ function clearGrid() {
 }
 
 function changeColor(e) {
-  if (currentTool === PEN) {
-    e.preventDefault();
+  e.preventDefault();
+  if (e.which === LEFT_CLICK) {
     console.log(e);
-    if (e.which === LEFT_CLICK) {
+    if (currentTool === PEN) {
       e.target.style.backgroundColor = currentColor;
-    } else if (e.which === RIGHT_CLICK) {
-      e.target.style.backgroundColor = WHITE_COLOR;
+    } else if (currentTool === RANDOM_COLOR_TOOL) {
+      e.target.style.backgroundColor = getRandomColor();
     }
-  } else if (currentTool === RANDOM_COLOR_TOOL) {
-    e.target.style.backgroundColor = getRandomColor();
+  } else if (e.which === RIGHT_CLICK) {
+    e.target.style.backgroundColor = WHITE_COLOR;
   }
 }
 
