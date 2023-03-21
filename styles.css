@@ -17,12 +17,6 @@ body {
   gap: 3rem;
 }
 
-header,
-.empty {
-  min-height: 4rem;
-  height: 6rem;
-}
-
 header {
   width: 70%;
   max-width: 1000px;
@@ -34,7 +28,7 @@ header {
 }
 
 h1 {
-  font-size: 3rem;
+  font-size: 3.5rem;
   color: #ddd;
 }
 
@@ -139,17 +133,19 @@ h2 {
 }
 
 .empty {
+  min-height: 8rem;
   width: 100%;
-  padding: 1rem;
+  padding: 0 4rem;
 
   display: flex;
   justify-content: flex-end;
-  align-items: center;
+  align-items: flex-start;
 }
+
 
 .github-link {
   display: inline-block;
-  height: 120%;
+  height: 80%;
   aspect-ratio: 1/1;
   border-radius: 10px;
   background-color: #df6e63;
@@ -158,5 +154,5 @@ h2 {
   background-image: url("./images/github-logo.png");
   background-position: center;
   background-repeat: no-repeat;
-  background-size: 80% 80%;
+  background-size: 60% 60%;
 }
