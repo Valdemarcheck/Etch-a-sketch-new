@@ -299,3 +299,33 @@ h2 {
   transform: translateY(0.5rem);
   box-shadow: none;
 }
+
+.slide-infinitely {
+  animation: slide-infinitely 15s ease-in-out infinite;
+}
+
+.slide-infinitely.delayed {
+  animation-delay: 2s;
+}
+
+.slide-infinitely.reversed {
+  animation-direction: reverse;
+}
+
+@keyframes slide-infinitely {
+  0% {
+    transform: translateY(0);
+  }
+
+  25% {
+    transform: translateY(2rem);
+  }
+  
+  75% {
+    transform: translateY(-4rem);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
