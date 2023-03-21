@@ -36,7 +36,6 @@ h1 {
 main {
   flex: 1;
   width: 80%;
-  background-color: #252b35;
 
   display: flex;
 }
@@ -46,7 +45,6 @@ main > * {
 }
 
 .buttons {
-  background-color: aqua;
   min-width: 5rem;
   max-width: 7rem;
   padding: 1rem;
@@ -67,7 +65,6 @@ main > * {
 }
 
 .canvas-and-slider {
-  background-color: aquamarine;
   min-width: 14rem;
 
   display: flex;
@@ -129,7 +126,6 @@ h2 {
 }
 
 .lines {
-  background-color: aqua;
   min-width: 16rem;
   padding: 1rem;
 
@@ -142,7 +138,6 @@ h2 {
   flex: 1;
   max-height: 12rem;
   width: 18rem;
-  background-color: #252b35;
 }
 
 .line-container:nth-child(2) {
