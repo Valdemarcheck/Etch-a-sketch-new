@@ -13,22 +13,26 @@ const minSizeSpan = document.querySelector(".slider-value.min");
 const slider = document.querySelector(".canvas-size");
 const maxSizeSpan = document.querySelector(".slider-value.max");
 
+// Setup text beside slider
+
 minSizeSpan.textContent = slider.min;
 maxSizeSpan.textContent = slider.max;
+
+// Setup global variables
 
 let pixels = [];
 let brushSize = 1;
 let currentColor = "#000000";
 
-function fillGrid(width) {
-  for (let row = 0; row < width; row++) {
-    pixels.push([]);
-    for (let column = 0; column < width; column++) {
-      let pixel = setupPixel(row, column, width);
-      pixels[row].push(pixel);
-      canvas.appendChild(pixel);
-    }
-  }
+// Add eventListener's
+
+slider.addEventListener("change", regenerateCanvas);
+
+// initialize required functions
+
+function regenerateCanvas() {
+  clearCanvas();
+  fillGrid(+slider.value);
 }
 
 function setupPixel(row, column, pixelAmount) {
@@ -41,6 +45,18 @@ function setupPixel(row, column, pixelAmount) {
   pixel.setAttribute("index", `${row},${column}`);
 
   return pixel;
+}
+
+function fillGrid(width) {
+  for (let row = 0; row < width; row++) {
+    pixels.push([]);
+
+    for (let column = 0; column < width; column++) {
+      let pixel = setupPixel(row, column, width);
+      pixels[row].push(pixel);
+      canvas.appendChild(pixel);
+    }
+  }
 }
 
 function clearCanvas() {
