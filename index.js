@@ -50,7 +50,7 @@ randomColorTool.addEventListener(
 slider.addEventListener("change", regenerateGrid);
 
 BUTTONS.forEach((button) => {
-  let tooltipText = button.getAttribute('tooltip-text');
+  let tooltipText = button.getAttribute("tooltip-text");
   button.addEventListener("mouseover", (e) => setTooltip(e, tooltipText));
   button.addEventListener("mouseout", (e) => removeTooltip(e));
 });
@@ -58,11 +58,12 @@ BUTTONS.forEach((button) => {
 // initialize required functions
 
 function setTooltip(e, text) {
-  console.log("inside");
-  let tooltip = document.createElement("div");
-  tooltip.textContent = text;
-  tooltip.classList.add("tooltip");
-  e.target.appendChild(tooltip);
+  if (!e.lastChild) {
+    let tooltip = document.createElement("div");
+    tooltip.textContent = text;
+    tooltip.classList.add("tooltip");
+    e.target.appendChild(tooltip);
+  }
 }
 
 function removeTooltip(e) {
