@@ -6,6 +6,8 @@ const penSizeTool = document.querySelector(".pen-size-btn");
 const colorPicker = document.querySelector(".color-btn");
 const randomColorTool = document.querySelector(".random-color-btn");
 
+const BUTTONS = [penTool, clearTool, penSizeTool, colorPicker, randomColorTool];
+
 const canvas = document.querySelector(".canvas");
 
 const minSizeSpan = document.querySelector(".slider-value.min");
@@ -35,19 +37,37 @@ let currentTool = PEN;
 
 // Add eventListeners
 
-slider.addEventListener("change", regenerateGrid);
-clearTool.addEventListener("click", setGridToOneColor);
 penTool.addEventListener("click", () => (currentTool = PEN));
-randomColorTool.addEventListener(
-  "click",
-  () => (currentTool = RANDOM_COLOR_TOOL)
-);
+clearTool.addEventListener("click", setGridToOneColor);
 colorPicker.addEventListener(
   "change",
   () => (currentColor = colorPicker.value)
 );
+randomColorTool.addEventListener(
+  "click",
+  () => (currentTool = RANDOM_COLOR_TOOL)
+);
+slider.addEventListener("change", regenerateGrid);
+
+BUTTONS.forEach((button) => {
+  let tooltipText = button.getAttribute('tooltip-text');
+  button.addEventListener("mouseover", (e) => setTooltip(e, tooltipText));
+  button.addEventListener("mouseout", (e) => removeTooltip(e));
+});
 
 // initialize required functions
+
+function setTooltip(e, text) {
+  console.log("inside");
+  let tooltip = document.createElement("div");
+  tooltip.textContent = text;
+  tooltip.classList.add(".tooltip");
+  e.target.appendChild(tooltip);
+}
+
+function removeTooltip(e) {
+  e.target.lastChild.remove();
+}
 
 function regenerateGrid() {
   clearGrid();
