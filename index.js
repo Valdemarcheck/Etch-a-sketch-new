@@ -61,7 +61,7 @@ function setTooltip(e, text) {
   console.log("inside");
   let tooltip = document.createElement("div");
   tooltip.textContent = text;
-  tooltip.classList.add(".tooltip");
+  tooltip.classList.add("tooltip");
   e.target.appendChild(tooltip);
 }
 
