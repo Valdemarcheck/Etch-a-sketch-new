@@ -53,7 +53,9 @@ randomColorTool.addEventListener(
   "click",
   () => (currentTool = RANDOM_COLOR_TOOL)
 );
+
 gridSizeSlider.addEventListener("change", regenerateGrid);
+penSizeSlider.addEventListener("change", (e) => (penSize = +e.target.value));
 
 BUTTONS.forEach((button) => {
   let tooltipText = button.getAttribute("tooltip-text");
