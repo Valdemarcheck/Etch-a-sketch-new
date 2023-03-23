@@ -122,7 +122,6 @@ function setupPixel(row, column, pixelAmount) {
 
   pixel.addEventListener("mousedown", (e) => changeColor(e));
   pixel.addEventListener("mousemove", (e) => changeColor(e));
-  pixel.addEventListener("touchmove", (e) => changeColor(e));
 
   return pixel;
 }
