@@ -43,6 +43,8 @@ let currentTool = PEN;
 
 // Add eventListeners
 
+window.addEventListener("resize", regenerateGrid);
+
 penTool.addEventListener("click", () => (currentTool = PEN));
 clearTool.addEventListener("click", setGridToOneColor);
 colorPicker.addEventListener(
