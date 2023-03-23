@@ -60,17 +60,17 @@ BUTTONS.forEach((button) => {
 
 function setTooltip(e, text) {
   let tooltip = document.createElement("div");
-  let div = getNodeForTooltip(e);
+  let button = getNodeForTooltip(e);
 
   tooltip.textContent = text;
   tooltip.classList.add("tooltip");
 
-  div.appendChild(tooltip);
+  button.appendChild(tooltip);
 }
 
 function removeTooltip(e) {
-  let div = getNodeForTooltip(e);
-  div.lastChild.remove();
+  let button = getNodeForTooltip(e);
+  button.lastChild.remove();
 }
 
 function createSlider(e) {
