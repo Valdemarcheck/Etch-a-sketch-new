@@ -99,11 +99,11 @@ function getButtonNode(e) {
 
 function regenerateGrid() {
   clearGrid();
-  fillGrid(+slider.value);
+  fillGrid(+gridSizeSlider.value);
 }
 
 function setGridToOneColor() {
-  let gridWidth = +slider.value;
+  let gridWidth = +gridSizeSlider.value;
   for (let row = 0; row < gridWidth; row++) {
     for (let column = 0; column < gridWidth; column++) {
       pixels[row][column].style.backgroundColor = WHITE_COLOR;
@@ -151,12 +151,27 @@ function changeColor(e) {
   e.preventDefault();
   if (e.which === LEFT_CLICK) {
     if (currentTool === PEN) {
-      e.target.style.backgroundColor = currentColor;
+      draw(e);
     } else if (currentTool === RANDOM_COLOR_TOOL) {
-      e.target.style.backgroundColor = getRandomColor();
+      draw(e, getRandomColor());
     }
   } else if (e.which === RIGHT_CLICK) {
-    e.target.style.backgroundColor = WHITE_COLOR;
+    draw(e, WHITE_COLOR);
+  }
+}
+
+function draw(e, color = currentColor) {
+  if (penSize > 1) {
+    let rowIndex, columnIndex;
+    [rowIndex, columnIndex] = e.target.getAttribute("index").split(",");
+    rowIndex = +rowIndex;
+    columnIndex = +columnIndex;
+
+    let range = penSize - 1;
+
+    drawMultiple(rowIndex, columnIndex, range, color);
+  } else {
+    e.target.style.backgroundColor = color;
   }
 }
 
@@ -167,5 +182,7 @@ function getRandomColor() {
 function getColorPart() {
   return Math.floor(Math.random() * 255);
 }
+
+// Draw initial grid
 
 fillGrid(+gridSizeSlider.value);
