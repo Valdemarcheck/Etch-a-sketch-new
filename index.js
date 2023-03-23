@@ -2,11 +2,10 @@
 
 const penTool = document.querySelector(".pen-btn");
 const clearTool = document.querySelector(".clear-btn");
-const penSizeTool = document.querySelector(".pen-size-btn");
 const colorPicker = document.querySelector(".color-btn");
 const randomColorTool = document.querySelector(".random-color-btn");
 
-const BUTTONS = [penTool, clearTool, penSizeTool, colorPicker, randomColorTool];
+const BUTTONS = [penTool, clearTool, colorPicker, randomColorTool];
 
 const canvas = document.querySelector(".canvas");
 
@@ -31,7 +30,7 @@ const RANDOM_COLOR_TOOL = "random_color";
 // Setup global variables
 
 let pixels = [];
-let brushSize = 1;
+let penSize = 1;
 let currentColor = colorPicker.value;
 let currentTool = PEN;
 
@@ -39,7 +38,6 @@ let currentTool = PEN;
 
 penTool.addEventListener("click", () => (currentTool = PEN));
 clearTool.addEventListener("click", setGridToOneColor);
-penSizeTool.addEventListener("click", (e) => createSlider(e));
 colorPicker.addEventListener(
   "change",
   () => (currentColor = colorPicker.value)
@@ -52,51 +50,35 @@ slider.addEventListener("change", regenerateGrid);
 
 BUTTONS.forEach((button) => {
   let tooltipText = button.getAttribute("tooltip-text");
-  button.addEventListener("mouseover", (e) => setTooltip(e, tooltipText));
+  button.addEventListener("mouseover", (e) => createTooltip(e, tooltipText));
   button.addEventListener("mouseout", (e) => removeChildren(e));
 });
 
 // initialize required functions
 
-function setTooltip(e, text) {
-  let tooltip = document.createElement("div");
-  let button = getNodeForTooltip(e);
+function createTooltip(e, text) {
+  let button = getButtonNode(e);
+  if (text) {
+    let tooltip = document.createElement("div");
 
-  tooltip.textContent = text;
-  tooltip.classList.add("tooltip");
+    tooltip.textContent = text;
+    tooltip.classList.add("tooltip");
 
-  button.appendChild(tooltip);
+    button.appendChild(tooltip);
+  }
 }
 
 function removeChildren(e) {
-  let button = getNodeForTooltip(e);
+  let button = getButtonNode(e);
 
   for (let child of button.children) {
-    if (child.nodeName !== "IMG") {
+    if (child.nodeName === "DIV") {
       button.removeChild(child);
     }
   }
 }
 
-function createSlider(e) {
-  let button = getNodeForTooltip(e);
-  let slider = document.createElement("input");
-  button.appendChild(setupSlider(slider));
-}
-
-function setupSlider(slider) {
-  slider.setAttribute("type", "range");
-  slider.setAttribute("min", 1);
-  slider.setAttribute("max", 10);
-  slider.setAttribute("step", 1);
-  slider.setAttribute("value", 1);
-
-  slider.classList.add("pen-size-slider");
-
-  return slider;
-}
-
-function getNodeForTooltip(e) {
+function getButtonNode(e) {
   let node = e.target;
 
   if (node.nodeName === "DIV") {
