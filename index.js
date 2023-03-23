@@ -176,7 +176,7 @@ function draw(e, color = currentColor) {
 }
 
 function drawMultiple(rowIndex, columnIndex, range, color = currentColor) {
-  let gridSize = gridSizeSlider.value;
+  let gridSize = +gridSizeSlider.value;
   for (let row = rowIndex - range; row <= rowIndex + range; row++) {
     for (
       let column = columnIndex - range;
@@ -192,7 +192,7 @@ function drawMultiple(rowIndex, columnIndex, range, color = currentColor) {
 }
 
 function IsInRange(value, min, max) {
-  return value >= min && value <= max;
+  return value >= min && value < max;
 }
 
 function getRandomColor() {
