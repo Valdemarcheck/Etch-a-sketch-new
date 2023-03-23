@@ -53,7 +53,7 @@ slider.addEventListener("change", regenerateGrid);
 BUTTONS.forEach((button) => {
   let tooltipText = button.getAttribute("tooltip-text");
   button.addEventListener("mouseover", (e) => setTooltip(e, tooltipText));
-  button.addEventListener("mouseout", (e) => removeTooltip(e));
+  button.addEventListener("mouseout", (e) => removeChildren(e));
 });
 
 // initialize required functions
@@ -68,14 +68,19 @@ function setTooltip(e, text) {
   button.appendChild(tooltip);
 }
 
-function removeTooltip(e) {
+function removeChildren(e) {
   let button = getNodeForTooltip(e);
-  button.lastChild.remove();
+
+  for (let child of button.children) {
+    if (child.nodeName !== "IMG") {
+      button.removeChild(child);
+    }
+  }
 }
 
 function createSlider(e) {
   let button = getNodeForTooltip(e);
-  let slider = document.createElement('input');
+  let slider = document.createElement("input");
   button.appendChild(setupSlider(slider));
 }
 
@@ -86,7 +91,7 @@ function setupSlider(slider) {
   slider.setAttribute("step", 1);
   slider.setAttribute("value", 1);
 
-  slider.classList.add('pen-size-slider');
+  slider.classList.add("pen-size-slider");
 
   return slider;
 }
@@ -94,9 +99,9 @@ function setupSlider(slider) {
 function getNodeForTooltip(e) {
   let node = e.target;
 
-  if (node.nodeName === 'DIV') {
+  if (node.nodeName === "DIV") {
     return node;
-  } else if (node.nodeName === 'IMG') {
+  } else {
     return node.parentNode;
   }
 }
