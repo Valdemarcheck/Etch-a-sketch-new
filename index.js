@@ -9,14 +9,21 @@ const BUTTONS = [penTool, clearTool, colorPicker, randomColorTool];
 
 const canvas = document.querySelector(".canvas");
 
-const minSizeSpan = document.querySelector(".slider-value.min");
-const slider = document.querySelector(".canvas-size");
-const maxSizeSpan = document.querySelector(".slider-value.max");
+const minGridSizeSpan = document.querySelector(".canvas-size-value.min");
+const gridSizeSlider = document.querySelector(".canvas-size");
+const maxGridSizeSpan = document.querySelector(".canvas-size-value.max");
 
-// Setup text beside slider
+const minPenSizeSpan = document.querySelector(".pen-size-value.min");
+const penSizeSlider = document.querySelector(".pen-size");
+const maxPenSizeSpan = document.querySelector(".pen-size-value.max");
 
-minSizeSpan.textContent = slider.min;
-maxSizeSpan.textContent = slider.max;
+// Setup text beside sliders
+
+minGridSizeSpan.textContent = gridSizeSlider.min;
+maxGridSizeSpan.textContent = gridSizeSlider.max;
+
+minPenSizeSpan.textContent = penSizeSlider.min;
+maxPenSizeSpan.textContent = penSizeSlider.max;
 
 // Setup aliases
 
@@ -46,7 +53,7 @@ randomColorTool.addEventListener(
   "click",
   () => (currentTool = RANDOM_COLOR_TOOL)
 );
-slider.addEventListener("change", regenerateGrid);
+gridSizeSlider.addEventListener("change", regenerateGrid);
 
 BUTTONS.forEach((button) => {
   let tooltipText = button.getAttribute("tooltip-text");
@@ -159,4 +166,4 @@ function getColorPart() {
   return Math.floor(Math.random() * 255);
 }
 
-fillGrid(+slider.value);
+fillGrid(+gridSizeSlider.value);

@@ -39,11 +39,23 @@
           />
         </div>
       </div>
-      <div class="canvas-and-slider">
+      <div class="canvas-and-sliders">
         <h2>Your canvas</h2>
+        <div class="slider">
+          <span class="pen-size-value min"></span>
+          <input
+            type="range"
+            min="1"
+            max="12"
+            value="1"
+            step="1"
+            class="pen-size"
+          />
+          <span class="pen-size-value max"></span>
+        </div>
         <div class="canvas" oncontextmenu="return false"></div>
         <div class="slider">
-          <span class="slider-value min"></span>
+          <span class="canvas-size-value min"></span>
           <input
             type="range"
             min="2"
@@ -52,7 +64,7 @@
             step="1"
             class="canvas-size"
           />
-          <span class="slider-value max"></span>
+          <span class="canvas-size-value max"></span>
         </div>
       </div>
       <div class="lines">
