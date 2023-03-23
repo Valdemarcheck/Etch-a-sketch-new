@@ -39,6 +39,7 @@ let currentTool = PEN;
 
 penTool.addEventListener("click", () => (currentTool = PEN));
 clearTool.addEventListener("click", setGridToOneColor);
+penSizeTool.addEventListener("click", (e) => createSlider(e));
 colorPicker.addEventListener(
   "change",
   () => (currentColor = colorPicker.value)
@@ -70,6 +71,11 @@ function setTooltip(e, text) {
 function removeTooltip(e) {
   let div = getNodeForTooltip(e);
   div.lastChild.remove();
+}
+
+function createSlider(e) {
+  let button = getNodeForTooltip(e);
+  console.log(button);
 }
 
 function getNodeForTooltip(e) {
