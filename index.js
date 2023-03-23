@@ -175,6 +175,26 @@ function draw(e, color = currentColor) {
   }
 }
 
+function drawMultiple(rowIndex, columnIndex, range, color = currentColor) {
+  let gridSize = gridSizeSlider.value;
+  for (let row = rowIndex - range; row <= rowIndex + range; row++) {
+    for (
+      let column = columnIndex - range;
+      column <= columnIndex + range;
+      column++
+    ) {
+      if (IsInRange(row, 0, gridSize) && IsInRange(column, 0, gridSize)) {
+        let pixel = pixels[row][column];
+        pixel.style.backgroundColor = color;
+      }
+    }
+  }
+}
+
+function IsInRange(value, min, max) {
+  return value >= min && value <= max;
+}
+
 function getRandomColor() {
   return `rgb(${getColorPart()}, ${getColorPart()}, ${getColorPart()})`;
 }
