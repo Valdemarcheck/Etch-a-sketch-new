@@ -58,16 +58,24 @@ BUTTONS.forEach((button) => {
 // initialize required functions
 
 function setTooltip(e, text) {
-  if (!e.lastChild) {
-    let tooltip = document.createElement("div");
-    tooltip.textContent = text;
-    tooltip.classList.add("tooltip");
+  let tooltip = document.createElement("div");
+
+  tooltip.textContent = text;
+  tooltip.classList.add("tooltip");
+
+  if (e.target.nodeName === 'DIV') {
     e.target.appendChild(tooltip);
+  } else if (e.target.nodeName === 'IMG') {
+    e.target.parentNode.appendChild(tooltip);
   }
 }
 
 function removeTooltip(e) {
-  e.target.lastChild.remove();
+  if (e.target.nodeName === 'DIV') {
+    e.target.lastChild.remove();
+  } else if (e.target.nodeName === 'IMG') {
+    e.target.parentNode.lastChild.remove();
+  }
 }
 
 function regenerateGrid() {
