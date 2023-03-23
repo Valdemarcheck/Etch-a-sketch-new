@@ -75,7 +75,20 @@ function removeTooltip(e) {
 
 function createSlider(e) {
   let button = getNodeForTooltip(e);
-  console.log(button);
+  let slider = document.createElement('input');
+  button.appendChild(setupSlider(slider));
+}
+
+function setupSlider(slider) {
+  slider.setAttribute("type", "range");
+  slider.setAttribute("min", 1);
+  slider.setAttribute("max", 10);
+  slider.setAttribute("step", 1);
+  slider.setAttribute("value", 1);
+
+  slider.classList.add('pen-size-slider');
+
+  return slider;
 }
 
 function getNodeForTooltip(e) {
