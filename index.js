@@ -59,22 +59,26 @@ BUTTONS.forEach((button) => {
 
 function setTooltip(e, text) {
   let tooltip = document.createElement("div");
+  let div = getNodeForTooltip(e);
 
   tooltip.textContent = text;
   tooltip.classList.add("tooltip");
 
-  if (e.target.nodeName === 'DIV') {
-    e.target.appendChild(tooltip);
-  } else if (e.target.nodeName === 'IMG') {
-    e.target.parentNode.appendChild(tooltip);
-  }
+  div.appendChild(tooltip);
 }
 
 function removeTooltip(e) {
-  if (e.target.nodeName === 'DIV') {
-    e.target.lastChild.remove();
-  } else if (e.target.nodeName === 'IMG') {
-    e.target.parentNode.lastChild.remove();
+  let div = getNodeForTooltip(e);
+  div.lastChild.remove();
+}
+
+function getNodeForTooltip(e) {
+  let node = e.target;
+
+  if (node.nodeName === 'DIV') {
+    return node;
+  } else if (node.nodeName === 'IMG') {
+    return node.parentNode;
   }
 }
 
