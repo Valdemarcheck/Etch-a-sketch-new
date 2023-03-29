@@ -117,9 +117,8 @@ function setupPixel(row, column, pixelAmount) {
   let pixel = document.createElement("div");
   let pixelSize = canvas.clientHeight / pixelAmount;
 
-  pixel.style.border = "1px solid black";
-  pixel.style.minHeight = pixelSize + "px";
-  pixel.style.minWidth = pixelSize + "px";
+  pixel.style.height = pixelSize + "px";
+  pixel.style.width = pixelSize + "px";
   pixel.setAttribute("index", `${row},${column}`);
 
   pixel.addEventListener("mousedown", (e) => changeColor(e));
