@@ -94,13 +94,12 @@ h2 {
 }
 
 .canvas {
-  height: 330px;
-  width: 330px;
+  width: clamp(300px, 50vw, 700px);
+  aspect-ratio: 1/1;
   background-color: #fff;
   box-shadow: 0 0.5rem #252b35;
 
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
 }
 
 .slider {
@@ -261,7 +260,6 @@ input[type="range"]::-webkit-slider-thumb {
 }
 
 @media (max-width: 800px) {
-
   h1,
   h2 {
     font-size: 2rem;

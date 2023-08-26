@@ -45,10 +45,10 @@ let currentTool = PEN;
 
 window.addEventListener("resize", regenerateGrid);
 canvas.addEventListener("mousedown", (e) => {
-  changeColor(e);
+  if (!e.target.matches(".canvas")) changeColor(e);
 });
 canvas.addEventListener("mousemove", (e) => {
-  changeColor(e);
+  if (!e.target.matches(".canvas")) changeColor(e);
 });
 
 penTool.addEventListener("click", () => (currentTool = PEN));
@@ -119,24 +119,30 @@ function setGridToOneColor() {
   }
 }
 
-function setupPixel(row, column, pixelAmount) {
+function setupPixel(row, column) {
   let pixel = document.createElement("div");
-  let pixelSize = canvas.clientHeight / pixelAmount;
 
-  pixel.style.height = pixelSize + "px";
-  pixel.style.width = pixelSize + "px";
-  pixel.style.border = "1px solid grey";
+  pixel.classList.add("pixel");
   pixel.setAttribute("index", `${row},${column}`);
 
   return pixel;
 }
 
-function fillGrid(width) {
-  for (let row = 0; row < width; row++) {
+function fillGrid(widthInPixels) {
+  canvas.style.setProperty(
+    "grid-template-rows",
+    `repeat(${widthInPixels}, 1fr)`
+  );
+  canvas.style.setProperty(
+    "grid-template-columns",
+    `repeat(${widthInPixels}, 1fr)`
+  );
+
+  for (let row = 0; row < widthInPixels; row++) {
     pixels.push([]);
 
-    for (let column = 0; column < width; column++) {
-      let pixel = setupPixel(row, column, width);
+    for (let column = 0; column < widthInPixels; column++) {
+      let pixel = setupPixel(row, column);
       pixels[row].push(pixel);
       canvas.appendChild(pixel);
     }
@@ -145,6 +151,7 @@ function fillGrid(width) {
 
 function clearGrid() {
   canvas.textContent = "";
+  pixels = [];
 }
 
 function changeColor(e) {
@@ -162,8 +169,8 @@ function changeColor(e) {
 
 function draw(e, color = currentColor) {
   if (penSize > 1) {
-    let rowIndex, columnIndex;
-    [rowIndex, columnIndex] = e.target.getAttribute("index").split(",");
+    let [rowIndex, columnIndex] = e.target.getAttribute("index").split(",");
+
     rowIndex = +rowIndex;
     columnIndex = +columnIndex;
 
