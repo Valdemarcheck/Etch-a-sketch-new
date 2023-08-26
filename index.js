@@ -144,12 +144,7 @@ function fillGrid(width) {
 }
 
 function clearGrid() {
-  while (canvas.firstChild) {
-    canvas.removeChild(canvas.lastChild);
-  }
-  while (pixels.length > 0) {
-    pixels.pop();
-  }
+  canvas.textContent = "";
 }
 
 function changeColor(e) {
