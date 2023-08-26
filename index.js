@@ -44,6 +44,12 @@ let currentTool = PEN;
 // Add eventListeners
 
 window.addEventListener("resize", regenerateGrid);
+canvas.addEventListener("mousedown", (e) => {
+  changeColor(e);
+});
+canvas.addEventListener("mousemove", (e) => {
+  changeColor(e);
+});
 
 penTool.addEventListener("click", () => (currentTool = PEN));
 clearTool.addEventListener("click", setGridToOneColor);
@@ -119,10 +125,8 @@ function setupPixel(row, column, pixelAmount) {
 
   pixel.style.height = pixelSize + "px";
   pixel.style.width = pixelSize + "px";
+  pixel.style.border = "1px solid grey";
   pixel.setAttribute("index", `${row},${column}`);
-
-  pixel.addEventListener("mousedown", (e) => changeColor(e));
-  pixel.addEventListener("mousemove", (e) => changeColor(e));
 
   return pixel;
 }
