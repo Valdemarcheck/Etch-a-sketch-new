@@ -1,5 +1,4 @@
 // Get all required elements references
-
 const penTool = document.querySelector(".pen-btn");
 const clearTool = document.querySelector(".clear-btn");
 const colorPicker = document.querySelector(".color-btn");
@@ -111,10 +110,9 @@ function regenerateGrid() {
 }
 
 function setGridToOneColor() {
-  let gridWidth = +gridSizeSlider.value;
-  for (let row = 0; row < gridWidth; row++) {
-    for (let column = 0; column < gridWidth; column++) {
-      pixels[row][column].style.backgroundColor = WHITE_COLOR;
+  for (let row of pixels) {
+    for (let pixel of row) {
+      pixel.style.backgroundColor = WHITE_COLOR;
     }
   }
 }
@@ -203,7 +201,7 @@ function IsInRange(value, min, max) {
 }
 
 function getRandomColor() {
-  return `rgb(${getColorPart()}, ${getColorPart()}, ${getColorPart()})`;
+  return "#" + ((Math.random() * 0xffffff) << 0).toString(16).padStart(6, "0");
 }
 
 function getColorPart() {
