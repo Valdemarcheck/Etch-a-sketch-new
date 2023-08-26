@@ -94,7 +94,7 @@ h2 {
 }
 
 .canvas {
-  width: clamp(300px, 50vw, 700px);
+  width: clamp(300px, 50vw, 600px);
   aspect-ratio: 1/1;
   background-color: #fff;
   box-shadow: 0 0.5rem #252b35;
